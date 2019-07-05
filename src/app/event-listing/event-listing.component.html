@@ -1,0 +1,29 @@
+<div style="margin: 2%">
+  <div class="row " >
+    <div *ngIf="events && events.length == 0" style="margin-left:45%">
+      <p style="text-align: center;color:red;font-weight: 1000;font-size:24px; ">No Data Found!!</p>
+    </div>
+    <div class="col-lg-3" *ngFor="let event of events " style="padding: 1%">
+       <div style="height: 12%">
+        <div class="card text-center" >
+          <img class="card-img-top" [src]="event.image" alt="event.name"> 
+          <div class="card-body">
+            <h5 class="card-title" style="
+            font-size: 24px;font-weight: 600;">{{event.name}}</h5>
+            <div class="card-text" style="margin: 7%">
+              <div style="font-size: 14px; font-weight: 400;"> Starts on</div>
+              <div style="font-size: 16px;
+              font-weight: 600;">{{event.dateOfEvent}}</div>
+              <div style="font-size: 16px;
+              font-weight: 600;">Seats Available : {{event.seatsAvailable}}</div>
+            </div>
+            <button type="button" class="btn btn-lg btn-primary" *ngIf="event.seatsAvailable > 0" [routerLink]="['/../bookEvent',event.id]">Book Now</button>
+            <button type="button" class="btn btn-lg btn-primary" *ngIf="event.seatsAvailable == 0" disabled>Sold Out</button>
+
+          </div>
+        </div>
+      </div>
+      </div>
+    <!-- <div class="col-sm-12 col-md-1 col-lg-1"></div> -->
+</div>
+</div>

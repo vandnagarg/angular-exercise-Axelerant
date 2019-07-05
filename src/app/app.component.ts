@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-exercise';
+  searchText:string;
+
+  searchEvent($event){
+    this.searchText = $event;
+  }
 }
