@@ -20,7 +20,7 @@ export class EventListingComponent implements OnInit {
       this.searchEventservice.currentSearchText.subscribe(data1=>{
         this.events  = <IEventListing[]>data;
         this.searchText = data1;
-        this.events = this.events.filter(event=>event.name.indexOf(this.searchText) != -1)
+        this.events = this.events.filter(event=>event.name.toLowerCase().indexOf(this.searchText) != -1)
         console.log(this.events); 
       })
     })
